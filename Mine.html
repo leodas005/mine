@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Nunito',sans-serif;
+background:#07030a;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* STAR BACKGROUND */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 90s linear infinite;
+z-index:-1;
+}
+
+@keyframes moveStars{
+from{background-position:0 0}
+to{background-position:10000px 5000px}
+}
+
+/* NAVBAR */
+
+nav{
+text-align:center;
+padding:15px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(6px);
+position:sticky;
+top:0;
+}
+
+nav a{
+color:#ffb6c1;
+margin:0 15px;
+text-decoration:none;
+font-size:14px;
+}
+
+/* COVER */
+
+#cover{
+text-align:center;
+padding:120px 20px 80px;
+}
+
+.cover-heart{
+font-size:3rem;
+animation:beat 1.6s infinite;
+display:block;
+margin-bottom:20px;
+}
+
+.cover-title{
+font-family:'Lora',serif;
+font-size:3rem;
+color:#ff9ab5;
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1)}
+40%{transform:scale(1.3)}
+}
+
+/* CONTENT */
+
+.content{
+max-width:750px;
+margin:auto;
+padding:40px 20px;
+}
+
+.section{
+margin-bottom:70px;
+text-align:center;
+}
+
+.sec-title{
+font-family:'Lora',serif;
+font-size:26px;
+color:#ff9ab5;
+margin-bottom:20px;
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.07);
+border-radius:12px;
+padding:25px;
+margin-bottom:20px;
+backdrop-filter:blur(8px);
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* PROMISES */
+
+.vow{
+margin:10px 0;
+opacity:0;
+transform:translateX(-20px);
+transition:0.5s;
+}
+
+.vow.show{
+opacity:1;
+transform:translateX(0);
+}
+
+
+
+
+
+/* FLOATING HEARTS */
+
+.floating-heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+color:#ff6fa2;
+animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0)}
+100%{transform:translateY(-100vh);opacity:0}
+}
+
+/* CURSOR HEART */
+
+.cursor-heart{
+position:fixed;
+pointer-events:none;
+font-size:14px;
+color:#ff9ab5;
+animation:fade 1s linear forwards;
+}
+
+@keyframes fade{
+to{opacity:0;transform:translateY(-20px)}
+}
+
+/* LYRICS */
+
+.lyrics{
+line-height:2;
+font-style:italic;
+color:#ffdce5;
+font-size:18px;
+min-height:200px;
+}
+
+#typingLyrics::after{
+content:"|";
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:1}
+50%{opacity:0}
+100%{opacity:1}
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#aaa;
+}
+
+audio{
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgMusic" loop>
+    <source src="A.mpeg" type="audio/mp3">
+</audio>
+
+<script>
+window.addEventListener("load", function () {
+    var music = document.getElementById("bgMusic");
+    music.play().catch(function(error) {
+        console.log("Autoplay blocked. Waiting for user interaction.");
+    });
+});
+</script>
+
+<script>
+document.addEventListener("click", function () {
+    var music = document.getElementById("bgMusic");
+    music.play();
+}, { once: true });
+</script>
+
+
+<section id="cover">
+
+<span class="cover-heart">♥</span>
+
+<h1 class="cover-title">To My Love</h1>
+
+<p>Shylu is always in my heart</p>
+
+
+<p>Touch Here</p>
+
+</section>
+
+<div class="content">
+
+<section class="section" id="letters">
+
+<h2 class="sec-title">My Letters</h2>
+
+<div class="card">
+<p>You are the calm in my chaos and the warmth in my mornings.</p>
+</div>
+
+<div class="card">
+<p>My loyalty is something I choose for you every day.</p>
+</div>
+
+<div class="card">
+<p>Your dreams matter to me. Your heart matters to me.</p>
+</div>
+
+</section>
+
+<section class="section" id="vows">
+
+<h2 class="sec-title">My Promises</h2>
+
+<div class="vow">♡ I will always choose you.</div>
+<div class="vow">♡ I will protect your heart.</div>
+<div class="vow">♡ I will celebrate your happiness.</div>
+<div class="vow">♡ I will always be with you.</div>
+
+</section>
+
+
+<section class="section" id="lyrics">
+
+<h2 class="sec-title">A Song That Speaks My Heart</h2>
+
+<div class="card lyrics">
+
+<p id="typingLyrics"></p>
+
+</div>
+
+</section>
+
+<section class="section" id="promise">
+
+<h2 class="sec-title">My Forever Promise</h2>
+
+<div class="card">
+
+<p>I promise a love that keeps trying, learning and growing.</p>
+<p>You are my safest place.</p>
+<p><em>Made with full of love ♥</em></p>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+<p>I miss you 💙</p>
+</footer>
+
+<div class="popup" id="popup">
+<img id="popupImg">
+</div>
+
+<script>
+
+/* SCROLL ANIMATION */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(!entry.isIntersecting)return;
+entry.target.classList.add("show");
+});
+});
+
+document.querySelectorAll(".card,.vow").forEach(el=>observer.observe(el));
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("floating-heart");
+
+heart.innerHTML="💙";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=3+Math.random()*3+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+
+}
+
+setInterval(createHeart,400);
+
+/* CURSOR HEART */
+
+document.addEventListener("mousemove",e=>{
+
+const heart=document.createElement("div");
+
+heart.classList.add("cursor-heart");
+
+heart.innerHTML="♥";
+
+heart.style.left=e.clientX+"px";
+heart.style.top=e.clientY+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),5000);
+
+});
+
+/* GALLERY POPUP */
+
+const popup=document.getElementById("popup");
+const popupImg=document.getElementById("popupImg");
+
+document.querySelectorAll(".gallery img").forEach(img=>{
+img.onclick=()=>{
+popup.style.display="flex";
+popupImg.src=img.src;
+}
+});
+
+popup.onclick=()=>{
+popup.style.display="none";
+}
+
+/* FORCE MUSIC PLAY IF BLOCKED */
+
+document.addEventListener("click",function(){
+document.getElementById("bgMusic").play();
+});
+
+/* TYPING LYRICS */
+
+const lyricsLines = [
+
+"Kaathalilae kaathalilae",
+"Tholvigal kidaiyaathe",
+"Naan thottrae ponaalum",
+"Endhan kaathal thorkkaathe",
+
+"",
+"Unthan madiyinilae oru",
+"Nooru aandu vaazha vendumadi",
+"Unthan mithi adiyaai",
+"Ini ezhu jenmam thondra vendumadi",
+
+"",
+"Azhage azhage nee asainthaal asaiyum ulagae",
+"Amuthe amuthe unthan ithazhgal thaan en unavae",
+
+"",
+"Pon mazhai saaralil malligai povena",
+"Minnidum thaaragai nee varavae",
+"Kaigalai koppiyae muthangal serthida",
+"Kannangal paarthu naan kaathiruppaen"
+
+];
+
+let lineIndex=0;
+let charIndex=0;
+
+const typingElement=document.getElementById("typingLyrics");
+
+function typeLyrics(){
+
+if(lineIndex<lyricsLines.length){
+
+if(charIndex<lyricsLines[lineIndex].length){
+
+typingElement.innerHTML+=lyricsLines[lineIndex].charAt(charIndex);
+charIndex++;
+
+setTimeout(typeLyrics,50);
+
+}else{
+
+typingElement.innerHTML+="<br>";
+lineIndex++;
+charIndex=0;
+
+setTimeout(typeLyrics,600);
+
+}
+
+}
+
+}
+
+typeLyrics();
+
+</script>
+
+</body>
+</html>
